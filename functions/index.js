@@ -6,10 +6,10 @@ exports.sendEmail = functions.https.onRequest((request, response) => {
   sgMail.setApiKey(functions.config().sendgrid.key);
 
   const msg = {
-    to: 'erq.programmer@gmail.com',
+    to: 'kontakt@bryzol.pl',
     from: request.body.email,
     subject: `[Bryzol] Nowa wiadomość od ${request.body.name}`,
-    text: request.body.message
+    text: request.body.message,
   };
 
   cors(request, response, () => {
