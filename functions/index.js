@@ -9,7 +9,7 @@ exports.sendEmail = functions.https.onRequest((request, response) => {
     to: 'kontakt@bryzol.pl',
     from: request.body.email,
     subject: `[Bryzol] Nowa wiadomość od ${request.body.name}`,
-    text: request.body.message,
+    html: `<div><p><strong>Imię i nazwisko: </strong>${request.body.name}</p><p><strong>Email: </strong>${request.body.email}</p><p><strong>Numer telefonu: </strong>${request.body.tel}</p><p><strong>Wiadomość: </strong>${request.body.message}</p></div>`,
   };
 
   cors(request, response, () => {
